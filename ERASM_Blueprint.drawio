@@ -1,10 +1,16 @@
-<mxfile host="65bd71144e">
-    <diagram name="Page-1" id="kgvZxAm8TH3YwgrNBOY_">
-        <mxGraphModel dx="1132" dy="761" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
-            <root>
-                <mxCell id="0"/>
-                <mxCell id="1" parent="0"/>
-            </root>
-        </mxGraphModel>
-    </diagram>
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.7">
+  <diagram name="Page-1" id="kgvZxAm8TH3YwgrNBOY_">
+    <mxGraphModel dx="1221" dy="725" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#f2f2f2" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="3ZPfZAF9qThGpDrnkbzA-1" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;font style=&quot;font-size: 28px;&quot;&gt;O&lt;/font&gt;&lt;font style=&quot;font-size: 28px;&quot;&gt;utline Framework&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;Provides a basic template that clearly identifies a start point, requirements and other criteria that need to be met&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;along the way.&lt;/span&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry width="340" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZPfZAF9qThGpDrnkbzA-2" value="&lt;font face=&quot;Helvetica&quot; style=&quot;font-size: 20px;&quot;&gt;Completed Risk Assesment&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="920" y="680" width="160" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
 </mxfile>
