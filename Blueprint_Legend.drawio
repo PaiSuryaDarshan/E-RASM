@@ -70,8 +70,23 @@
         <mxCell id="cWb5SJ1JfWpika560xzd-24" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;&quot;&gt;.txt file&lt;br&gt;(Could also be .csv)&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.document" vertex="1" parent="1">
           <mxGeometry x="1213.19" y="540" width="83.62" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="cWb5SJ1JfWpika560xzd-25" value="&lt;font color=&quot;#0050ef&quot; style=&quot;font-size: 20px;&quot;&gt;Sorting Rules&lt;/font&gt;" style="sketch=0;outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.rule;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#FFFFFF;" vertex="1" parent="1">
-          <mxGeometry x="1370" y="550" width="110" height="110" as="geometry" />
+        <mxCell id="cWb5SJ1JfWpika560xzd-25" value="&lt;font color=&quot;#0050ef&quot; style=&quot;font-size: 20px;&quot;&gt;Sorting Rules&lt;/font&gt;&lt;div&gt;&lt;font color=&quot;#0050ef&quot;&gt;&lt;span style=&quot;font-size: 20px;&quot;&gt;aka Sorting System&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="sketch=0;outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.rule;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1380" y="550" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cWb5SJ1JfWpika560xzd-27" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Template&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#000000;strokeColor=#C73500;fillColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.template;" vertex="1" parent="1">
+          <mxGeometry x="1565" y="540" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="cWb5SJ1JfWpika560xzd-28" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Python List&lt;/font&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#d5e8d4;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="1760" y="566" width="140" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="cWb5SJ1JfWpika560xzd-29" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="cWb5SJ1JfWpika560xzd-28">
+          <mxGeometry y="26" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cWb5SJ1JfWpika560xzd-30" value="Item 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="cWb5SJ1JfWpika560xzd-28">
+          <mxGeometry y="52" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cWb5SJ1JfWpika560xzd-31" value="Item 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="cWb5SJ1JfWpika560xzd-28">
+          <mxGeometry y="78" width="140" height="26" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
