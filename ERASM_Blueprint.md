@@ -8,7 +8,7 @@ This will hold a list of perquisites required before beginning the project.
 2. International Chemical Hazard Codes (ICHC) **||** [docx][pdf] 
 3. Safety Data Sheets (SDS) **||** [pdf]
 
-#### Website links
+#### Website link
 1. https://www.sigmaaldrich.com/
 
 #### Packages
