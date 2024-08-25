@@ -2,36 +2,56 @@
 
 This will hold a list of perquisites required before beginning the project.
 
-## I. Prerequisites
+## I | Prerequisites
+
+#### Raw Data Source
+
+Sigma Aldrich - https://www.sigmaaldrich.com/
 
 #### Documents
 
-1. Risk Assessment Template (RAT) **||** [docx]
-2. International Chemical Hazard Codes (ICHC) **||** [docx][pdf]
-3. Safety Data Sheets (SDS) **||** [pdf]
+1. Risk Assessment Template (RAT)   **||**      [docx]
+2. International Chemical Hazard Codes (ICHC)   **||**      [docx][pdf]
+3. Safety Data Sheets (SDS)     **||**      [pdf]
 
-#### Website link
+#### Packages, libraries and other requirements
 
-1. https://www.sigmaaldrich.com/
+P1:
+- os
+- subprocess
+- Playwright
+- selenium
+- SDS_SU folder
 
-#### Packages
+P2:
+- pdf reader
+- Log.txt file (store all accessed variables)
 
-os
+P3:
+- 
 
-## II. Different file names and their respective descriptions
 
-### 1. **PBeta** | _Hazard Code Sorting System (HCSS)_
+## II | Different file names and their respective descriptions
 
-### 2. **PGamma** | _ERAS Formatting_
+### 1. **PBeta** | *Hazard Code Sorting System (HCSS)*
 
-### 3. **P1** | _SDS Extraction_
+### 2. **PGamma** | *ERAS Formatting*
 
-### 4. **P2** | _SDS Parsing_
+### 3. **P1** | *SDS Extraction*
 
-### 5. **P3** | _Hazard tagging and Interpretation_
+### 4. **P2** | *SDS Parsing*
 
-### 6. **P4** | _Hazard Entry_
+### 5. **P3** | *Hazard tagging and Interpretation*
 
-### 7. **P5** | _Finishing Touches_
+### 6. **P4** | *Hazard Entry*
+
+### 7. **P5** | *Finishing Touches*
+
+### 8. **P0Alpha** | *User input*
+
+This will mainly comprise of 1 main input, which is the list of chemicals.
+
+This will include an OS check, useful to verify the rest of the process, especially because current demands require communication between completely different operating systems.
+
 
 ## III. Basic Outline (Can be used as comments later)
