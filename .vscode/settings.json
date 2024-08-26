@@ -1,9 +1,12 @@
 {
     "cSpell.words": [
+        "Cooldown",
         "describedby",
-        "os"
+        "os",
+        "pypdf"
     ],
     "cSpell.ignoreWords": [
-        "merck"
+        "merck",
+        "url"
     ]
 }

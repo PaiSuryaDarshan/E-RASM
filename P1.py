@@ -6,8 +6,7 @@ import sys_checks
 from playwright.sync_api import sync_playwright
 import requests
 import time
-
-CHEMICAL = "hYDROCHLOric acid".capitalize()
+from pypdf import PdfReader
 
 # Function that obtains SDS PDF download link
 def GRAB_SDS_URL(CHEMICAL):
@@ -40,7 +39,7 @@ def GRAB_SDS_URL(CHEMICAL):
 def URL_to_PDF(url, CHEMICAL):
 
     headers = {'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1'}
-    file_Path = f"./storage_directory/{CHEMICAL}.pdf"
+    file_path = f"./storage_directory/{CHEMICAL}.pdf"
 
     response = requests.get(url, stream =True, headers = headers)
 
@@ -54,12 +53,56 @@ def URL_to_PDF(url, CHEMICAL):
 
     content = response.content
 
-    with open(file_Path, "wb") as file:
+    with open(file_path, "wb") as file:
         file.write(content)
         file.close()
+    
+    return file_path
 
-# Function to check if the SDS PDF is valid
+# Function to check if the SDS PDF is readable 
+# (also returns official/standard name)
+def obtain_name(file_path, CHEMICAL):
 
+    # Cooldown time for computer to completely execute the file download
+    time.sleep(2)
 
-url = GRAB_SDS_URL(CHEMICAL)
-URL_to_PDF(url, CHEMICAL)
+    # Creating variables
+    CHEMICAL_NAME = ''
+    text    = ''
+
+    # Enabling Reader
+    reader  = PdfReader(file_path)
+
+    # Extracting text from each page in the PDF file
+    for page in reader.pages:
+        text += (page.extract_text()).lower()
+    
+    # Finding the chemical name within the text using common flags
+    start_flag = "product name  :"
+    end_flag = "product number  :"
+
+    name_start_index = (text.index(start_flag) + len(start_flag))
+    name_end_index = (text.index(end_flag))
+
+    CHEMICAL_NAME = text[name_start_index : name_end_index].capitalize()
+
+    # Confirm NAME (Manual Input required)
+    confirmation_flag = input(
+        f"""Is Name of chemical: {CHEMICAL_NAME}?
+        Press ENTER to confirm (or) 
+        Type 'alt' to use query name as chemical name (or)
+        Type an alternate name.
+        """)
+
+    if confirmation_flag.strip() == '':
+        print(f"Name: {CHEMICAL_NAME}")
+    elif confirmation_flag.strip().lower() == 'alt':
+        # use query name as CHEMICAL_NAME
+        CHEMICAL_NAME = CHEMICAL
+        print(f"Query name used: {CHEMICAL_NAME}" + ".")
+    else:
+        # suggested alternate name
+        CHEMICAL_NAME = confirmation_flag.capitalize().strip() + '(r)'
+        print(f"Name modified: {CHEMICAL_NAME}")
+
+    return CHEMICAL_NAME
