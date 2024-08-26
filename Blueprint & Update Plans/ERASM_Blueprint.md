@@ -17,7 +17,7 @@ Sigma Aldrich - https://www.sigmaaldrich.com/
 #### Packages, libraries and other requirements
 
 P1:
-- os
+- OS 
 - subprocess
 - Playwright
 - selenium
@@ -28,8 +28,9 @@ P2:
 - Log.txt file (store all accessed variables)
 
 P3:
+- IMPORT HCSS.PY (CUSTOM LIBRARY)
+- Create / Update (.csv) file
 - 
-
 
 ## II | Different file names and their respective descriptions
 
