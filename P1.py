@@ -5,7 +5,7 @@ import sys_checks
 from playwright.sync_api import sync_playwright
 import requests
 
-CHEMICAL = "ethanol".capitalize()
+CHEMICAL = "propanol".capitalize()
 
 # Function that obtains SDS PDF download link
 def GRAB_SDS_URL(CHEMICAL):
