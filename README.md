@@ -2,4 +2,4 @@
 
 This code writes my risk assessments.
 
-## This will be updated every time, a change is committed.
+## This will be updated every time progress is made.
