@@ -37,7 +37,7 @@ def GRAB_SDS_URL(CHEMICAL):
 # Function to Download SDS to a specific directory
 def URL_to_PDF(url):
     with open(f"./storage_directory/{CHEMICAL}.pdf", "wb") as f:
-        f.write(requests.get(url))
+        f.write(requests.get(url, stream=True, headers='Mozilla 5.5 Firefox'))
         f.close()
 
 url = GRAB_SDS_URL(CHEMICAL)
