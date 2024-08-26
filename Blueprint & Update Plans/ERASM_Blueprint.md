@@ -19,7 +19,7 @@ Sigma Aldrich - https://www.sigmaaldrich.com/
 P1:
 - OS 
 - subprocess
-- Playwright
+- playwright
 - selenium
 - SDS_SU folder
 
@@ -29,8 +29,19 @@ P2:
 
 P3:
 - IMPORT HCSS.PY (CUSTOM LIBRARY)
-- Create / Update (.csv) file
-- 
+- Haz.csv file
+
+P4:
+- docx
+
+P5:
+- docx
+
+PBeta:
+- XYZ
+
+PGamma:
+- XYZ
 
 ## II | Different file names and their respective descriptions
 
@@ -39,6 +50,9 @@ P3:
 ### 2. **PGamma** | *ERAS Formatting*
 
 ### 3. **P1** | *SDS Extraction*
+
+1. Playwright to access "Merck" (aka Sigma Aldrich) through chromium.
+2.  
 
 ### 4. **P2** | *SDS Parsing*
 
