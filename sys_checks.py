@@ -15,10 +15,9 @@ if sys.platform == 'win32':
 if sys.platform == 'darwin':
     OS_Flag = "MacOS"
 
-print (f'''
-
-{OS_Flag} detected
-release: {release}
-version: {version}
-
-''')
+if __name__ == "__main__":
+    print (f'''
+    {OS_Flag} detected
+    release: {release}
+    version: {version}
+    ''')
