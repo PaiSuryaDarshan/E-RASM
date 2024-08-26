@@ -13,7 +13,7 @@ if sys.platform == 'win32':
     OS_Flag = "Windows"
 
 if sys.platform == 'darwin':
-    OS_Flag = "Mac OS X"
+    OS_Flag = "MacOS"
 
 print (f'''
 {OS_Flag} detected
