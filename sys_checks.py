@@ -16,7 +16,9 @@ if sys.platform == 'darwin':
     OS_Flag = "MacOS"
 
 print (f'''
+
 {OS_Flag} detected
 release: {release}
 version: {version}
+
 ''')
