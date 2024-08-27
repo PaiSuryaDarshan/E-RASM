@@ -25,12 +25,14 @@ for chemical in LIST_OF_CHEMICALS:
     VALUE_cas_no = P2.get_cas_no(sec_1)
     VALUE_formula, VALUE_weight = P2.get_molecular_info(sec_3)
     VALUE_state, VALUE_density = P2.get_state(sec_9)
+    VALUE_hazards = P2.get_hazards(sec_2)
 
     print(f"CAS-No : {VALUE_cas_no}")
     print(f"Formula: {VALUE_formula}")
     print(f"Weight : {VALUE_weight}")
     print(f"State  : {VALUE_state}")
     print(f"Density: {VALUE_density}")
+    print(f"Hazards: {VALUE_hazards}")
 
 
 

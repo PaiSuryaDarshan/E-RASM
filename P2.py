@@ -200,10 +200,8 @@ def get_hazards(section_2_text: str) -> tuple:
 
     return hazard_list
 
-
-
 # Test variables
-T_file_path     = './storage_directory/Atrazine.pdf'
-T_CHEMICAL_NAME = 'Ethanol'
-s1, s2, s3, s9 = auto_isolate_section(file_path=T_file_path)
-print(get_hazards(s2))
+# T_file_path     = './storage_directory/Atrazine.pdf'
+# T_CHEMICAL_NAME = 'Ethanol'
+# s1, s2, s3, s9 = auto_isolate_section(file_path=T_file_path)
+# print(get_hazards(s2))
