@@ -1,6 +1,6 @@
 import P1
 
-list_of_chemicals = ["Hydrochloric Acid", "Sulfuric Acid", "ethanol"]
+list_of_chemicals = ["ethanol"]
 
 for chemical in list_of_chemicals:
     # Standardizing text

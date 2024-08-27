@@ -1,15 +1,13 @@
 # Un-Licensed. Free to use, copy, modify and merge.
 # Please maintain attribution to the original author and the license.
 
-import os
-import sys_checks
 from playwright.sync_api import sync_playwright
 import requests
 import time
 from pypdf import PdfReader
 
 # Function that obtains SDS PDF download link
-def GRAB_SDS_URL(CHEMICAL):
+def GRAB_SDS_URL(CHEMICAL: str) -> str:
     WEBSITE = "https://www.sigmaaldrich.com"
     SEARCH_BUTTON_ID = "header-search-submit-search-wrapper"
     with sync_playwright() as p:
@@ -36,7 +34,7 @@ def GRAB_SDS_URL(CHEMICAL):
     return final_download_link
 
 # Function to Download SDS to a specific directory
-def URL_to_PDF(url, CHEMICAL):
+def URL_to_PDF(url: str, CHEMICAL: str) -> str:
 
     headers = {'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1'}
     file_path = f"./storage_directory/{CHEMICAL}.pdf"
@@ -61,10 +59,10 @@ def URL_to_PDF(url, CHEMICAL):
 
 # Function to check if the SDS PDF is readable 
 # (also returns official/standard name)
-def obtain_name(file_path, CHEMICAL):
+def obtain_name(file_path: str, CHEMICAL: str) -> str:
 
     # Cooldown time for computer to completely execute the file download
-    time.sleep(2)
+    time.sleep(1)
 
     # Creating variables
     CHEMICAL_NAME = ''
@@ -78,20 +76,31 @@ def obtain_name(file_path, CHEMICAL):
         text += (page.extract_text()).lower()
     
     # Finding the chemical name within the text using common flags
-    start_flag = "product name  :"
-    end_flag = "product number  :"
+    section_locator = "1.1 product identifier"
+    start_locator = "product name  :"
+    end_locator   = ":"
 
-    name_start_index = (text.index(start_flag) + len(start_flag))
-    name_end_index = (text.index(end_flag))
+    ## Finding Section with required information
+    section_index = (text.find(section_locator) + len(section_locator))
+    section_of_interest = text[section_index:]
 
-    CHEMICAL_NAME = text[name_start_index : name_end_index].capitalize()
+    ## Finding string of information in section
+    name_start_index = (section_of_interest.find(start_locator) + len(start_locator))
+    name_end_index = section_of_interest[name_start_index:].find(end_locator)
+
+    ## Assigning variable
+    CHEMICAL_NAME_raw = section_of_interest[name_start_index : name_end_index]
+    CHEMICAL_NAME = CHEMICAL_NAME_raw.split()[0].capitalize()
 
     # Confirm NAME (Manual Input required)
     confirmation_flag = input(
-        f"""Is Name of chemical: {CHEMICAL_NAME}?
+        f"""
+        ================================================================
+        Is Name of chemical: {CHEMICAL_NAME}?
         Press ENTER to confirm (or) 
         Type 'alt' to use query name as chemical name (or)
         Type an alternate name.
+        ================================================================
         """)
 
     if confirmation_flag.strip() == '':
