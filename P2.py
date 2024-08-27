@@ -108,8 +108,6 @@ def get_molecular_info(section_3_text: str) -> tuple:
     l_space = " "
 
     text = section_3_text
-    
-    # print (text)
 
     # Molecular formula
     start_index = start_index_marker(text, L_MOL_FORMULA)
@@ -129,28 +127,83 @@ def get_molecular_info(section_3_text: str) -> tuple:
 
 # 3. Phys & Chem properties (SEC-9) 
 # verify physical state != liquid, if false, grab density
+def get_state(section_9_text: str) -> tuple:
 
-# def get_
+    # SPECIFIC LOCATORS
+    L_phys_state  = "physical state  "
+    L_density     = "density  "
+    # Generic locators
+    l_space = " "
 
-# SPECIFIC LOCATORS
-L_MOL_FORMULA = "formula  : "
-L_MOL_WEIGHT = "weight  : "
-L_CAS_NO = "cas-no. : "
+    text = section_9_text
 
-# Generic locators
-l_space = " "
+    # state
+    start_index = start_index_marker(text, L_phys_state)
+    end_index   = end_index_marker(text, start_index, l_space)
+    phys_state  = text[start_index:end_index]
 
-# Test variables
-# T_file_path     = './storage_directory/Ethanol.pdf'
-# T_CHEMICAL_NAME = 'Ethanol'
-# s1, s2, s3, s9 = auto_isolate_section(file_path=T_file_path)
-# print(get_molecular_info(s3))
+    if phys_state == "liquid":
+        # Get density
+        start_index = start_index_marker(text, L_density)
+        end_index   = end_index_marker(text, start_index, l_space)
+        density     = text[start_index:end_index]
 
+        if ',' in density:
+            density = density.replace(',', '.')
+        else:
+            pass
+    else:
+        density = "N/A"
 
-
-
+    return phys_state, density
 
 # 4. Hazard statements      (SEC-2) 
 # Split Hazard codes and Hazard statements
 
+def get_hazards(section_2_text: str) -> tuple:
 
+    haz_list_raw        = []
+    hazard_list = []
+    haz_codes       = []
+    haz_statements  = []
+
+    # SPECIFIC LOCATORS
+    L_haz_lines = "hazard statement"
+    L_haz_codes = "h"
+
+    # Generic locators
+    l_space = " "
+
+    section_start_index = start_index_marker(section_2_text, L_haz_lines)
+    text = section_2_text[section_start_index:]
+    
+    start_index = text.find(L_haz_codes)-1
+    haz_text    = text[start_index:]
+
+    # state
+    # start_index = start_index_marker(text, L_haz_codes)-1
+    # end_index   = start_index + 4
+    # haz_lines  = text[start_index:end_index]
+
+    haz_list_raw = haz_text.split('\n')
+
+    for index, hazard in enumerate(haz_list_raw):
+        if hazard.strip() == "" or hazard.strip()[0] == "=":
+            continue
+        elif hazard.strip()[0] != "h" and hazard.strip()[1].isdigit() == False and index == 0 :
+            break
+        elif hazard.strip()[0] != "h" and index != 0:
+            hazard = (haz_list_raw[index - 1] + hazard).strip()
+            hazard_list[-1] = hazard
+        else:
+            hazard_list.append(hazard.strip())
+
+    return hazard_list
+
+
+
+# Test variables
+T_file_path     = './storage_directory/Atrazine.pdf'
+T_CHEMICAL_NAME = 'Ethanol'
+s1, s2, s3, s9 = auto_isolate_section(file_path=T_file_path)
+print(get_hazards(s2))

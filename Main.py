@@ -3,7 +3,7 @@ import P2
 import time     # to calculate time elapsed
 
 
-LIST_OF_CHEMICALS = ["ethanol", "Methanol", "Toluene"]
+LIST_OF_CHEMICALS = ["ethanol", "Methanol", "Toluene", "Atrazine"]
 # LIST_OF_CHEMICALS = ["Oxalic acid", "Lycopene"]
 
 # Start time
@@ -24,10 +24,13 @@ for chemical in LIST_OF_CHEMICALS:
     ## VALUE retrieval
     VALUE_cas_no = P2.get_cas_no(sec_1)
     VALUE_formula, VALUE_weight = P2.get_molecular_info(sec_3)
+    VALUE_state, VALUE_density = P2.get_state(sec_9)
 
     print(f"CAS-No : {VALUE_cas_no}")
     print(f"Formula: {VALUE_formula}")
     print(f"Weight : {VALUE_weight}")
+    print(f"State  : {VALUE_state}")
+    print(f"Density: {VALUE_density}")
 
 
 
