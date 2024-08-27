@@ -96,7 +96,8 @@ def obtain_name(file_path: str, CHEMICAL: str) -> str:
     confirmation_flag = input(
         f"""
         ================================================================
-        Is Name of chemical: {CHEMICAL_NAME}?
+        CONFIRM CHEMICAL NAME: {CHEMICAL_NAME}
+        
         Press ENTER to confirm (or) 
         Type 'alt' to use query name as chemical name (or)
         Type an alternate name.
