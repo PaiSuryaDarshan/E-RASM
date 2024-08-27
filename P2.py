@@ -25,6 +25,7 @@ def isolate_section(
     if section_end_locator in TEXT:
         pass
     else:
+        print(f"using alt locator for section {section_number}")
         section_end_locator = section_alt_end_locator
 
     section_start_index = (TEXT.find(section_start_locator) + len(section_start_locator))
@@ -68,47 +69,84 @@ def auto_isolate_section(file_path: str) -> tuple:
 
     return sec_1, sec_2, sec_3, sec_9
 
-# Test variables
-#T_file_path     = './storage_directory/Ethanol.pdf'
-#T_CHEMICAL_NAME = 'Ethanol'
-#s1, s2, s3, s9 = auto_isolate_section(file_path=T_file_path)
-#print(s1)
+# Function to automate start index
+def start_index_marker(text: str, locator_substring: str) -> int:
+    start_index = (text.find(locator_substring) + len(locator_substring))
+    return start_index
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Function to automate start index
+def end_index_marker(text: str, start_index: str, locator_substring: str) -> int:
+    end_index = text[start_index:].find(locator_substring) + len(text[:start_index])
+    return end_index
 
 # Second Step: Identify and isolate required information from each section 
 # store in their respective variables
 
 # 1. Product Identifiers    (SEC-1) 
 # CAS-NO
+def get_cas_no(section_1_text: str) -> str:
 
+    # SPECIFIC LOCATORS
+    L_CAS_NO = "cas-no. : "
+    # Generic locators
+    l_space = " "
 
+    text = section_1_text
+    start_index = start_index_marker(text, L_CAS_NO)
+    end_index   = end_index_marker(text, start_index, l_space)
+    cas_no      = text[start_index:end_index]
+    return cas_no
 
 # 2. Substance Information  (SEC-3) 
 # Molecular formula, Molecular weight
+def get_molecular_info(section_3_text: str) -> tuple:
 
+    # SPECIFIC LOCATORS
+    L_MOL_FORMULA = "formula  : "
+    L_MOL_WEIGHT = "weight  : "
+    # Generic locators
+    l_space = " "
 
+    text = section_3_text
+    
+    # print (text)
+
+    # Molecular formula
+    start_index = start_index_marker(text, L_MOL_FORMULA)
+    end_index   = end_index_marker(text, start_index, l_space)
+    mol_formula = text[start_index:end_index]
+    # Molecular weight
+    start_index = start_index_marker(text, L_MOL_WEIGHT)
+    end_index   = end_index_marker(text, start_index, l_space)
+    mol_weight  = text[start_index:end_index]
+
+    if ',' in mol_weight:
+        mol_weight = mol_weight.replace(',', '.')
+    else:
+        pass
+
+    return mol_formula, mol_weight
 
 # 3. Phys & Chem properties (SEC-9) 
 # verify physical state != liquid, if false, grab density
+
+# def get_
+
+# SPECIFIC LOCATORS
+L_MOL_FORMULA = "formula  : "
+L_MOL_WEIGHT = "weight  : "
+L_CAS_NO = "cas-no. : "
+
+# Generic locators
+l_space = " "
+
+# Test variables
+# T_file_path     = './storage_directory/Ethanol.pdf'
+# T_CHEMICAL_NAME = 'Ethanol'
+# s1, s2, s3, s9 = auto_isolate_section(file_path=T_file_path)
+# print(get_molecular_info(s3))
+
+
 
 
 

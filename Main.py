@@ -3,12 +3,13 @@ import P2
 import time     # to calculate time elapsed
 
 
-list_of_chemicals = ["ethanol", "Methanol", "Toluene"]
+LIST_OF_CHEMICALS = ["ethanol", "Methanol", "Toluene"]
+# LIST_OF_CHEMICALS = ["Oxalic acid", "Lycopene"]
 
 # Start time
 start_time = time.time()
 
-for chemical in list_of_chemicals:
+for chemical in LIST_OF_CHEMICALS:
     # Standardizing text
     CHEMICAL = chemical.capitalize()
     
@@ -19,7 +20,14 @@ for chemical in list_of_chemicals:
 
     # P2 - SDS Parsing
     sec_1, sec_2, sec_3, sec_9 = P2.auto_isolate_section(file_path=file_path)
-    print(sec_1)
+
+    ## VALUE retrieval
+    VALUE_cas_no = P2.get_cas_no(sec_1)
+    VALUE_formula, VALUE_weight = P2.get_molecular_info(sec_3)
+
+    print(f"CAS-No : {VALUE_cas_no}")
+    print(f"Formula: {VALUE_formula}")
+    print(f"Weight : {VALUE_weight}")
 
 
 
@@ -37,11 +45,16 @@ for chemical in list_of_chemicals:
 # Log information 
 # -----------------------------------------------------------------------------------------------
 
+print("""
+-----------------------------------------------------------------------------------------------
+                                     Log information 
+-----------------------------------------------------------------------------------------------
+""")
 # End time
 end_time = time.time()
 time_elapsed = round(end_time-start_time, 2)
 # Number of chemicals
-no_of_chemicals = len(list_of_chemicals)
+no_of_chemicals = len(LIST_OF_CHEMICALS)
 #rate 
 rate = round(time_elapsed/no_of_chemicals, 2)
 # Log statement
