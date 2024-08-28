@@ -1,9 +1,6 @@
 # Un-Licensed. Free to use, copy, modify and merge.
 # Please maintain attribution to the original author and the license.
 
-# Function to print variable name
-#TODO:
-
 # Flag function based on provided substring
 def haz_flag(string: str, keywords: str, flag_variable: bool, ROE_value=0):
     # Locate the keyword in the string
@@ -16,14 +13,12 @@ def haz_flag(string: str, keywords: str, flag_variable: bool, ROE_value=0):
     # If the keyword is found, check for ROE
     # ROE Locators
     inhalation_locators = [101, "inhal"]
-    skin_locators       = [102, "skin"]
-    eyes_locators       = [102, "eye"]
+    skin_eye_locators   = [102, "skin", "eye"]
     swallow_locators    = [103, "swall"]
 
     ROE_list = [
         inhalation_locators, 
-        skin_locators, 
-        eyes_locators, 
+        skin_eye_locators, 
         swallow_locators
     ]
 
@@ -32,6 +27,7 @@ def haz_flag(string: str, keywords: str, flag_variable: bool, ROE_value=0):
             for route in route_list[1:]:
                 if route in string:
                     ROE_value += route_list[0]
+                    break
                 else:
                     pass
     return flag_variable, ROE_value
@@ -167,7 +163,7 @@ def test():
     # Sample values with expected results (INDEX, ROE_value)
     hazards_list_1 = [
         'h225  highly flammable liquid and vapor.', # (8, 0)
-        'h319  causes serious eye irritation.' # (5, 102)
+        'h319  causes serious skin and eye irritation.' # (5, 102)
         ]
 
     hazards_list_2 = [
@@ -179,7 +175,7 @@ def test():
     hazards_list_3 = [
         'h225  highly flammable liquid and vapor.', # (8, 0)
         'h304  may be fatal if swallowed and enters airways.', 
-        'h315  causes skin irritation.', # (5, 102)
+        'h315  causes skin/Eye irritation.', # (5, 102)
         'h336  may cause drowsiness or dizziness.',  #! (Null)
         'h361d  suspected of damaging the unborn child.',  #! (Null)
         'h373  may cause damage to organs (central nervous system) through prolonged or repeated exposure if inhaled.',  #! (Null)
@@ -192,7 +188,7 @@ def test():
         'h410  very toxic to aquatic life with long lasting effects.' # (3, 0)
         ]
 
-    flag_list, ROE_list = process_hazards(hazards_list_1)
+    flag_list, ROE_list = process_hazards(hazards_list_3)
 
     print(flag_list)
     print(ROE_list)
@@ -206,5 +202,5 @@ def test():
 
 if __name__ == "__main__":
     prior_information()
-    # test()
+    test()
     pass

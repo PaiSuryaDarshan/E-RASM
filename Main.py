@@ -28,12 +28,16 @@ for chemical in LIST_OF_CHEMICALS:
     VALUE_state, VALUE_density = P2.get_state(sec_9)
     VALUE_hazards = P2.get_hazards(sec_2)
 
+    # Pβ
+    t1, t2 = PBeta_HCSS.process_hazards(VALUE_hazards)
+    
     print(f"CAS-No : {VALUE_cas_no}")
     print(f"Formula: {VALUE_formula}")
     print(f"Weight : {VALUE_weight}")
     print(f"State  : {VALUE_state}")
     print(f"Density: {VALUE_density}")
     print(f"Hazards: {VALUE_hazards}")
+    print(f"Haz_inter: {t1, t2}")
 
 
 
