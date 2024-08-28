@@ -47,6 +47,7 @@ for chemical in LIST_OF_CHEMICALS:
     print(f"Density: {VALUE_density}")
     print(f"Hazards: {VALUE_hazards}")
     print(f"Haz_tags:{final_interpretation_haz_only}")
+    print(f"Haz_tags:{len(final_interpretation_haz_only)} items")
 
 
 
