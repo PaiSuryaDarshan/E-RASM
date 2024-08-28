@@ -1,10 +1,12 @@
 import PBeta_HCSS
 import P1
 import P2
+import P3
 import time     # to calculate time elapsed
 
 
-LIST_OF_CHEMICALS = ["ethanol", "Methanol", "Toluene", "Atrazine"]
+LIST_OF_CHEMICALS = ["ethanol", "Methanol", "Toluene", "Atrazine", "Oxalic acid", "Lycopene"]
+# LIST_OF_CHEMICALS = ["ethanol", "Methanol", "Toluene", "Atrazine"]
 # LIST_OF_CHEMICALS = ["Oxalic acid", "Lycopene"]
 
 # Start time
@@ -28,8 +30,10 @@ for chemical in LIST_OF_CHEMICALS:
     VALUE_state, VALUE_density = P2.get_state(sec_9)
     VALUE_hazards = P2.get_hazards(sec_2)
 
-    # Pβ
-    t1, t2 = PBeta_HCSS.process_hazards(VALUE_hazards)
+    # P3
+    haz_flags, ROE_list = PBeta_HCSS.process_hazards(VALUE_hazards)
+    index_values_TRUE, ROE_values = P3.catch_hazards(haz_flags)
+    final_interpretation_haz_only = P3.interpret_hazards(index_values_TRUE, ROE_values, ROE_list)
     
     print(f"CAS-No : {VALUE_cas_no}")
     print(f"Formula: {VALUE_formula}")
@@ -37,7 +41,7 @@ for chemical in LIST_OF_CHEMICALS:
     print(f"State  : {VALUE_state}")
     print(f"Density: {VALUE_density}")
     print(f"Hazards: {VALUE_hazards}")
-    print(f"Haz_inter: {t1, t2}")
+    print(f"Haz_tags:{final_interpretation_haz_only}")
 
 
 

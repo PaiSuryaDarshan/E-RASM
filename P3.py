@@ -3,7 +3,7 @@
 
 import PBeta_HCSS
 
-# Interpret True 
+# First Step: Interpret True 
 def catch_hazards(list_of_hazard_flags: list) -> list:
     
     index_values_TRUE = []
@@ -17,8 +17,8 @@ def catch_hazards(list_of_hazard_flags: list) -> list:
 
     return index_values_TRUE, raw_interpretation
 
-# Interpret ROE
-def interpret_ROE(index_values_TRUE: list, raw_interpretation: list, list_of_ROE: list) -> list:
+# Second Step: Interpret ROE and return final interpretation of hazards
+def interpret_hazards(index_values_TRUE: list, raw_interpretation: list, list_of_ROE: list) -> list:
     # where code is converted to english 
     # Values of ROW produced by HCSS V2 are interpretted here
     for index in (index_values_TRUE):
@@ -129,7 +129,7 @@ def test():
     flag_list, ROE_list = PBeta_HCSS.process_hazards(hazards_list_2)
 
     index_values_TRUE, ROE_values = catch_hazards(flag_list)
-    final_interpretation = interpret_ROE(index_values_TRUE, ROE_values, ROE_list)
+    final_interpretation = interpret_hazards(index_values_TRUE, ROE_values, ROE_list)
 
     print(final_interpretation)
 
