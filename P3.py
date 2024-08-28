@@ -31,6 +31,7 @@ def interpret_hazards(index_values_TRUE: list, raw_interpretation: list, list_of
             raw_interpretation[index] = "\n" + str(2)
         elif list_of_ROE[index] == 103:       
             raw_interpretation[index] = "\n" + str(3)
+
         # COMPLEX
         elif list_of_ROE[index] == 203:       
             raw_interpretation[index] = str(1) + "\n" + str(2)
@@ -38,15 +39,19 @@ def interpret_hazards(index_values_TRUE: list, raw_interpretation: list, list_of
             raw_interpretation[index] = str(1) + "\n" + str(3)
         elif list_of_ROE[index] == 205:       
             raw_interpretation[index] = str(2) + "\n" + str(3)
+
         # ALL COMBINED
         elif list_of_ROE[index] == 306:       
             raw_interpretation[index] = str(1) + "\n" + str(2) + "\n" + str(3)
+
         # Uniterable (Err)
         else:
             raw_interpretation[index] = str(raw_interpretation[index])
             
         
-    # Making final interpreatation
+
+
+    # Making final interpretation
     final_interpretation = []
 
     for i in raw_interpretation:
@@ -54,6 +59,26 @@ def interpret_hazards(index_values_TRUE: list, raw_interpretation: list, list_of
             final_interpretation.append('')
         else:
             final_interpretation.append(i)
+
+    # Test "final interpretation"
+    # final_interpretation = [
+    #     "carcinogen", "teratogen", "mutagen", "toxic", 
+    #     "harmful", "irritant", "explosive", "pyrophoric", 
+    #     "flammable", "oxidising", "corrosive", "lachrymator"
+    # ]
+
+    # C_T_M Table Entry 1
+    carcinogen = final_interpretation.pop(0)            # pops carcinogen (0th index on original list)
+    teratogen  = final_interpretation.pop(0)            # pops teratogen  (1th index on original list)
+    mutagen    = final_interpretation.pop(0)            # pops mutagen    (3th index on original list)
+    c_t_m        = (carcinogen + teratogen + mutagen).strip()
+    final_interpretation.insert(0 , c_t_m)
+
+    # H_I Table Entry 3
+    harmful    = final_interpretation.pop(2)            # pops harmful  (4th index on original list)
+    irritant   = final_interpretation.pop(2)            # pops irritant (5th index on original list)
+    h_i        = (harmful+irritant).strip()
+    final_interpretation.insert(2 , h_i)
 
     return final_interpretation
 
@@ -83,6 +108,17 @@ Index labels
     9: oxidising
     10:corrosive
     11:lachrymator
+
+Re-arranged labels
+    0: carcinogen, teratogen, mutagen
+    1: toxic
+    2: harmful, irritant
+    3: explosive
+    4: pyrophoric
+    5: flammable
+    6: oxidising
+    7: corrosive
+    8: lachrymator
         
 ROE_values (possible interpretations):
     Simple value:
@@ -100,33 +136,44 @@ ROE_values (possible interpretations):
 def test():
     # Sample values with expected results (INDEX, ROE_value)
     hazards_list_1 = [
-        'h225  highly flammable liquid and vapor.', # (8, 0)
-        'h319  causes serious skin and eye irritation.' # (5, 102)
+        'h225  highly flammable liquid and vapor.', 
+        'h319  causes serious skin and eye irritation.'
         ]
 
     hazards_list_2 = [
-        'h225  highly flammable liquid and vapor.', # (8, 0)
-        'h301 + h311 + h331  toxic if swallowed, in contact with skin or if inhaled.', # (3, 306)
-        'h370  causes damage to organs (eyes, central nervous system).' #! (Null)
+        'h225  highly flammable liquid and vapor.', 
+        'h301 + h311 + h331  toxic if swallowed, in contact with skin or if inhaled.',
+        'h370  causes damage to organs (eyes, central nervous system).'
         ]
 
     hazards_list_3 = [
-        'h225  highly flammable liquid and vapor.', # (8, 0)
+        'h225  highly flammable liquid and vapor.', 
         'h304  may be fatal if swallowed and enters airways.', 
-        'h315  causes skin/Eye irritation.', # (5, 102)
-        'h336  may cause drowsiness or dizziness.',  #! (Null)
-        'h361d  suspected of damaging the unborn child.',  #! (Null)
-        'h373  may cause damage to organs (central nervous system) through prolonged or repeated exposure if inhaled.',  #! (Null)
-        'h412  harmful to aquatic life with long lasting effects.'# (4, 0)
+        'h315  causes skin/Eye irritation.', 
+        'h336  may cause drowsiness or dizziness.', 
+        'h361d  suspected of damaging the unborn child.', 
+        'h373  may cause damage to organs (central nervous system) through prolonged or repeated exposure if inhaled.', 
+        'h412  harmful to aquatic life with long lasting effects.'
         ]
     
     hazards_list_4 = [
-        'h317  may cause an allergic skin reaction.',  #! (Null)
-        'h373  may cause damage to organs through prolonged or repeated exposure.',  #! (Null)
-        'h410  very toxic to aquatic life with long lasting effects.' # (3, 0)
+        'h317  may cause an allergic skin reaction.', 
+        'h373  may cause damage to organs through prolonged or repeated exposure.', 
+        'h410  very toxic to aquatic life with long lasting effects.' 
+        ]
+    
+    hazards_list_5 = [
+        'h225  highly flammable liquid and vapor.', 
+        'h304  may be fatal if swallowed and enters airways.', 
+        'h315  causes skin/Eye irritation.',
+        'h315  causes swallow harmfulness.',
+        'h336  may cause drowsiness or dizziness.', 
+        'h361d  suspected of damaging the unborn child.', 
+        'h373  may cause damage to organs (central nervous system) through prolonged or repeated exposure if inhaled.', 
+        'h412  harmful to aquatic life with long lasting effects.'
         ]
 
-    flag_list, ROE_list = PBeta_HCSS.process_hazards(hazards_list_2)
+    flag_list, ROE_list = PBeta_HCSS.process_hazards(hazards_list_5)
 
     index_values_TRUE, ROE_values = catch_hazards(flag_list)
     final_interpretation = interpret_hazards(index_values_TRUE, ROE_values, ROE_list)
