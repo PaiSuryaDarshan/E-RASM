@@ -33,11 +33,12 @@ for chemical in LIST_OF_CHEMICALS:
     # Pβ - HCSS V2.2
     haz_flags, ROE_list = PBeta_HCSS.process_hazards(VALUE_hazards)
     
-    # P3 - flag and code interpreter
+    # P3 - Flag and code interpreter
     index_values_TRUE, ROE_values = P3.catch_hazards(haz_flags)
     final_interpretation_haz_only = P3.interpret_hazards(index_values_TRUE, ROE_values, ROE_list)
     
-    # P4
+    # P4 - 
+
 
     print(f"CAS-No : {VALUE_cas_no}")
     print(f"Formula: {VALUE_formula}")
