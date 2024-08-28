@@ -30,11 +30,15 @@ for chemical in LIST_OF_CHEMICALS:
     VALUE_state, VALUE_density = P2.get_state(sec_9)
     VALUE_hazards = P2.get_hazards(sec_2)
 
-    # P3
+    # Pβ - HCSS V2.2
     haz_flags, ROE_list = PBeta_HCSS.process_hazards(VALUE_hazards)
+    
+    # P3 - flag and code interpreter
     index_values_TRUE, ROE_values = P3.catch_hazards(haz_flags)
     final_interpretation_haz_only = P3.interpret_hazards(index_values_TRUE, ROE_values, ROE_list)
     
+    # P4
+
     print(f"CAS-No : {VALUE_cas_no}")
     print(f"Formula: {VALUE_formula}")
     print(f"Weight : {VALUE_weight}")
@@ -69,9 +73,9 @@ end_time = time.time()
 time_elapsed = round(end_time-start_time, 2)
 # Number of chemicals
 no_of_chemicals = len(LIST_OF_CHEMICALS)
-#rate 
+# Rate 
 rate = round(time_elapsed/no_of_chemicals, 2)
 # Log statement
-print(f"Number of chemicals: {no_of_chemicals}")
-print(f"Time elapsed: {time_elapsed} seconds")
-print(f"Estimated Rate of download: {rate} seconds/chemical")
+print(f"Number of chemicals                 : {no_of_chemicals}")
+print(f"Time elapsed                        : {time_elapsed} seconds")
+print(f"Estimated Rate of download/upload   : {rate} seconds/chemical")
