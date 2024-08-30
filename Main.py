@@ -8,7 +8,7 @@ import P3
 import P5
 import time     # to calculate time elapsed
 
-
+NAME_OF_DOCUMENT  = 'test_draft'
 LIST_OF_CHEMICALS = ["ethanol", "Methanol", "Toluene", "Atrazine", "Oxalic acid", "Lycopene"]
 # LIST_OF_CHEMICALS = ["ethanol", "Methanol", "Toluene", "Atrazine"]
 # LIST_OF_CHEMICALS = ["Ethanol"]
@@ -16,7 +16,7 @@ LIST_OF_CHEMICALS = ["ethanol", "Methanol", "Toluene", "Atrazine", "Oxalic acid"
 # Start time
 start_time = time.time()
 
-for chemical in LIST_OF_CHEMICALS:
+for chemical_number_index, chemical in enumerate(LIST_OF_CHEMICALS):
     # Standardizing text
     CHEMICAL = chemical.capitalize()
     
@@ -42,6 +42,7 @@ for chemical in LIST_OF_CHEMICALS:
     final_interpretation_haz_only = P3.interpret_hazards(index_values_TRUE, ROE_values, ROE_list)
     
     # P4 - Document preparation done manually
+    # Hazard table has 25 rows on it by default, excess rows will be deleted at the end of loop.
 
     # P5 - Document entry
     FINAL_ENTRY = P5.prepare_final_list(final_interpretation_haz_only, CHEMICAL_NAME, VALUE_weight, VALUE_density)

@@ -77,7 +77,7 @@ def interpret_hazards(index_values_TRUE: list, raw_interpretation: list, list_of
     # H_I Table Entry 3
     harmful    = final_interpretation.pop(2)            # pops harmful  (4th index on original list)
     irritant   = final_interpretation.pop(2)            # pops irritant (5th index on original list)
-    h_i        = (harmful+irritant).strip()
+    h_i        = (harmful+irritant)
     final_interpretation.insert(2 , h_i)
 
     return final_interpretation
