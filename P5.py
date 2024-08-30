@@ -90,7 +90,7 @@ def del_excess_rows(NAME = "test_draft"):
     for i in range(len(haz_table.rows)-1, 0, -1):
         if haz_table.rows[i].cells[0].text.strip() == "":
             delete_row_in_table(haz_table, i)
-            
+
     # Save in the same path as original, This overwrites the document
     document.save(path)
 
@@ -127,7 +127,7 @@ def reference():
 
 if __name__ == "__main__":
     # reference()
-    final_entry_demo = prepare_final_list(interpreted_haz_list_demo, CHEMICAL_NAME)
-    make_table_entry(CHEMICAL_NUMBER, final_entry_demo)
-    del_excess_rows()
+    # final_entry_demo = prepare_final_list(interpreted_haz_list_demo, CHEMICAL_NAME)
+    # make_table_entry(CHEMICAL_NUMBER, final_entry_demo)
+    # del_excess_rows()
     pass
