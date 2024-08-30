@@ -5,12 +5,13 @@ import PBeta_HCSS
 import P1
 import P2
 import P3
+import P5
 import time     # to calculate time elapsed
 
 
 LIST_OF_CHEMICALS = ["ethanol", "Methanol", "Toluene", "Atrazine", "Oxalic acid", "Lycopene"]
 # LIST_OF_CHEMICALS = ["ethanol", "Methanol", "Toluene", "Atrazine"]
-# LIST_OF_CHEMICALS = ["Oxalic acid", "Lycopene"]
+# LIST_OF_CHEMICALS = ["Ethanol"]
 
 # Start time
 start_time = time.time()
@@ -40,8 +41,10 @@ for chemical in LIST_OF_CHEMICALS:
     index_values_TRUE, ROE_values = P3.catch_hazards(haz_flags)
     final_interpretation_haz_only = P3.interpret_hazards(index_values_TRUE, ROE_values, ROE_list)
     
-    # P4 - 
+    # P4 - Document preparation done manually
 
+    # P5 - Document entry
+    FINAL_ENTRY = P5.prepare_final_list(final_interpretation_haz_only, CHEMICAL_NAME, VALUE_weight, VALUE_density)
 
     print(f"CAS-No : {VALUE_cas_no}")
     print(f"Formula: {VALUE_formula}")
@@ -51,8 +54,10 @@ for chemical in LIST_OF_CHEMICALS:
     print(f"Hazards: {VALUE_hazards}")
     print(f"Haz_tags:{final_interpretation_haz_only}")
     print(f"Haz_tags:{len(final_interpretation_haz_only)} items")
-
-
+    print()
+    print(f"-------------------------------------------------------------------------------------------------------")
+    print(f"FINAL ENTRY TO APPEND TO TABLE")
+    print(f"{FINAL_ENTRY}")
 
 
 
