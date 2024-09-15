@@ -13,4 +13,5 @@ This code writes my risk assessments.
 1. Change and match text fonts of the table entry(s)
 
 
-possible ideas for coming projects, NMR and IR formatters
+possible ideas for coming projects:
+1. 
