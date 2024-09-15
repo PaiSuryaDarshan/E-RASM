@@ -14,4 +14,5 @@ This code writes my risk assessments.
 
 
 possible ideas for coming projects:
-1. 
+
+1. PyGame to make activity tracker app
