@@ -9,12 +9,16 @@ from pypdf import PdfReader
 # Function that obtains SDS PDF download link
 def GRAB_SDS_URL(CHEMICAL: str) -> str:
     WEBSITE = "https://www.sigmaaldrich.com"
+    COOKIES_BUTTON_ID = "onetrust-reject-all-handler"
     SEARCH_BUTTON_ID = "header-search-submit-search-wrapper"
     with sync_playwright() as p:
 
         browser = p.chromium.launch(headless=False)
         page    = browser.new_page()
         page.goto(WEBSITE)
+
+        # Reject Cookies button
+        page.get_by_role("button", name="Reject All").click()
 
         # Find chemical
         page.get_by_role("textbox", name="Type in Product").fill(CHEMICAL)
@@ -116,3 +120,5 @@ def obtain_name(file_path: str, CHEMICAL: str) -> str:
         print(f"Name modified: {CHEMICAL_NAME}")
 
     return CHEMICAL_NAME
+
+print(GRAB_SDS_URL("ethanol"))
