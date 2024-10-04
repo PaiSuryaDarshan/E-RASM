@@ -25,6 +25,7 @@ def prepare_final_list(
     QUANTITY = "", 
     MMOL = "", 
     EQUIVALENT = "", 
+    BLANK_ENTRY = "",
     OTHERS_TO_SPECIFY = ""
     ) -> list:
 
@@ -42,6 +43,7 @@ def prepare_final_list(
     final_entry.append(QUANTITY)
     final_entry.append(MMOL)
     final_entry.append(EQUIVALENT)
+    final_entry.append(BLANK_ENTRY)
 
     for haz_tag in interpreted_haz_list:
         final_entry.append(haz_tag)
