@@ -1,6 +1,7 @@
 # Un-Licensed. Free to use, copy, modify and merge.
 # Please maintain attribution to the original author and the license.
 
+from docx import Document
 import PBeta_HCSS
 import P1
 import P2
@@ -8,10 +9,15 @@ import P3
 import P5
 import time     # to calculate time elapsed
 
-NAME_OF_DOCUMENT  = 'test_draft'
-LIST_OF_CHEMICALS = ["ethanol", "Methanol", "Toluene", "Atrazine", "Oxalic acid", "Lycopene"]
-# LIST_OF_CHEMICALS = ["ethanol", "Methanol", "Toluene", "Atrazine"]
+NAME = 'test_draft'
+path = './template_directory/Blank Reaction Risk Assessment Form.docx'
+# LIST_OF_CHEMICALS = ["ethanol", "Methanol", "Toluene", "Atrazine", "Oxalic acid", "Lycopene"]
+LIST_OF_CHEMICALS = ["ethanol", "Methanol", "propanol"]
 # LIST_OF_CHEMICALS = ["Ethanol"]
+
+    
+document = Document(path)
+haz_table = document.tables[0]
 
 # Start time
 start_time = time.time()
@@ -47,20 +53,24 @@ for chemical_number_index, chemical in enumerate(LIST_OF_CHEMICALS):
     # P5 - Document entry
     FINAL_ENTRY = P5.prepare_final_list(final_interpretation_haz_only, CHEMICAL_NAME, VALUE_weight, VALUE_density)
 
-    print(f"CAS-No : {VALUE_cas_no}")
-    print(f"Formula: {VALUE_formula}")
-    print(f"Weight : {VALUE_weight}")
-    print(f"State  : {VALUE_state}")
-    print(f"Density: {VALUE_density}")
-    print(f"Hazards: {VALUE_hazards}")
-    print(f"Haz_tags:{final_interpretation_haz_only}")
-    print(f"Haz_tags:{len(final_interpretation_haz_only)} items")
-    print()
-    print(f"-------------------------------------------------------------------------------------------------------")
-    print(f"FINAL ENTRY TO APPEND TO TABLE")
-    print(f"{FINAL_ENTRY}")
+    # print(f"CAS-No : {VALUE_cas_no}")
+    # print(f"Formula: {VALUE_formula}")
+    # print(f"Weight : {VALUE_weight}")
+    # print(f"State  : {VALUE_state}")
+    # print(f"Density: {VALUE_density}")
+    # print(f"Hazards: {VALUE_hazards}")
+    # print(f"Haz_tags:{final_interpretation_haz_only}")
+    # print(f"Haz_tags:{len(final_interpretation_haz_only)} items")
+    # print()
+    # print(f"-------------------------------------------------------------------------------------------------------")
+    # print(f"FINAL ENTRY TO APPEND TO TABLE")
+    # print(f"{FINAL_ENTRY}")
 
+    P5.make_table_entry(chemical_number_index, FINAL_ENTRY, haz_table)
+    document.save(f'./Final Docs/{NAME}.docx')
 
+    # P5 - Document clean up
+    P5.del_excess_rows(NAME)
 
 
 

@@ -2,7 +2,6 @@
 # Please maintain attribution to the original author and the license.
 
 from docx import Document
-import copy                 # (Bug fix)
 
 CHEMICAL_NUMBER = 0
 CHEMICAL_NAME   = "Ethanol"
@@ -64,22 +63,19 @@ def delete_row_in_table(table, row):
     return
 # ----------------------------------------------------------------
 
+
 def make_table_entry(
         CHEMICAL_NUMBER, 
-        final_entry, 
-        path = './template_directory/Blank Reaction Risk Assessment Form.docx', 
-        NAME="test_draft"
+        final_entry,
+        haz_table 
         ):
-
-    document = Document(path)
-    haz_table = document.tables[0]
 
     # MATCHES CHEMICAL NUMBER WITH TABLE ROW INDEX
     row_index = CHEMICAL_NUMBER + 3
     for i in range(len(final_entry)):
         haz_table.rows[row_index].cells[i].text = final_entry[i]
 
-    document.save(f'./Final Docs/{NAME}.docx')
+
 
 
 # TOTAL NUMBER OF ROWS IN TEMPLATE DOCUMENT, HAZARD TABLE: 25
@@ -129,7 +125,7 @@ def reference():
 
 if __name__ == "__main__":
     # reference()
-    final_entry_demo = prepare_final_list(interpreted_haz_list_demo, CHEMICAL_NAME)
-    make_table_entry(CHEMICAL_NUMBER, final_entry_demo)
+    # final_entry_demo = prepare_final_list(interpreted_haz_list_demo, CHEMICAL_NAME)
+    # make_table_entry(CHEMICAL_NUMBER, final_entry_demo)
     # del_excess_rows()
     pass
