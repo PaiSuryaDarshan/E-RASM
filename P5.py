@@ -129,7 +129,7 @@ def reference():
 
 if __name__ == "__main__":
     # reference()
-    # final_entry_demo = prepare_final_list(interpreted_haz_list_demo, CHEMICAL_NAME)
-    # make_table_entry(CHEMICAL_NUMBER, final_entry_demo)
+    final_entry_demo = prepare_final_list(interpreted_haz_list_demo, CHEMICAL_NAME)
+    make_table_entry(CHEMICAL_NUMBER, final_entry_demo)
     # del_excess_rows()
     pass

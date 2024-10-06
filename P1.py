@@ -13,7 +13,7 @@ def GRAB_SDS_URL(CHEMICAL: str) -> str:
     SEARCH_BUTTON_ID = "header-search-submit-search-wrapper"
     with sync_playwright() as p:
 
-        browser = p.chromium.launch(headless=False)
+        browser = p.firefox.launch(headless=False)
         page    = browser.new_page()
         page.goto(WEBSITE)
 
@@ -121,4 +121,4 @@ def obtain_name(file_path: str, CHEMICAL: str) -> str:
 
     return CHEMICAL_NAME
 
-print(GRAB_SDS_URL("ethanol"))
+# print(GRAB_SDS_URL("ethanol"))
