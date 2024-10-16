@@ -1,0 +1,70 @@
+Cyclohexane
+P210 Keep away from heat, hot surfaces, sparks, open flames and
+other ignition sources. No smoking.
+P233 Keep container tightly closed.
+P273 Avoid release to the environment.
+P301 + P310 IF SWALLOWED: Immediately call a POISON CENTER/ doctor.
+P303 + P361 + P353 IF ON SKIN (or hair): Take off immediately all contaminated
+clothing. Rinse skin with water.
+P331 Do NOT induce vomiting.
+
+Dichloromethane
+P202 Do not handle until all safety precautions have been read and
+understood.
+P261 Avoid breathing mist or vapors.
+P264 Wash skin thoroughly after handling.
+P302 + P352 IF ON SKIN: Wash with plenty of water.
+P305 + P351 + P338 IF IN EYES: Rinse cautiously with water for several minutes.
+Remove contact lenses, if present and easy to do. Continue
+rinsing.
+P308 + P313 IF exposed or concerned: Get medical advice/ attention.
+
+Dimethyl Sulfoxide
+
+Ethanol
+P210 Keep away from heat, hot surfaces, sparks, open flames and
+other ignition sources. No smoking.
+P233 Keep container tightly closed.
+P240 Ground and bond container and receiving equipment.
+P241 Use explosion-proof electrical/ ventilating/ lighting/ equipment.
+P242 Use non-sparking tools.
+P305 + P351 + P338 IF IN EYES: Rinse cautiously with water for several minutes.
+Remove contact lenses, if present and easy to do. Continue
+rinsing.
+
+Ethylene Glycol
+P260 Do not breathe mist or vapors.
+P264 Wash skin thoroughly after handling.
+P270 Do not eat, drink or smoke when using this product.
+P301 + P312 IF SWALLOWED: Call a POISON CENTER/ doctor if you feel
+unwell.
+P314 Get medical advice/ attention if you feel unwell.
+P501 Dispose of contents/ container to an approved waste disposal
+plant
+
+Methanol
+P301 + P310 IF SWALLOWED: Immediately call a POISON CENTER/ doctor.
+P304 + P340 + P311 IF INHALED: Remove person to fresh air and keep comfortable
+for breathing. Call a POISON CENTER/ doctor.
+
+Octanol
+P264 Wash skin thoroughly after handling.
+P273 Avoid release to the environment.
+P280 Wear eye protection/ face protection.
+P305 + P351 + P338 IF IN EYES: Rinse cautiously with water for several minutes.
+Remove contact lenses, if present and easy to do. Continue
+rinsing.
+P337 + P313 If eye irritation persists: Get medical advice/ attention.
+P501 Dispose of contents/ container to an approved waste disposal
+plant.
+
+Toluene
+P202 Do not handle until all safety precautions have been read and
+understood.
+P210 Keep away from heat, hot surfaces, sparks, open flames and
+other ignition sources. No smoking.
+P273 Avoid release to the environment.
+P301 + P310 IF SWALLOWED: Immediately call a POISON CENTER/ doctor.
+P303 + P361 + P353 IF ON SKIN (or hair): Take off immediately all contaminated
+clothing. Rinse skin with water.
+P331 Do NOT induce vomiting

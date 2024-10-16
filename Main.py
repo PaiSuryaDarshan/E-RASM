@@ -9,7 +9,7 @@ import P3
 import P5
 import time     # to calculate time elapsed
 
-NAME = 'SC_OMe_RRAF'
+NAME = 'NEW_ATTEPT'
 path = './template_directory/Blank Reaction Risk Assessment Form.docx'
 # LIST_OF_CHEMICALS = ["ethanol", "Methanol", "Toluene", "Atrazine", "Oxalic acid", "Lycopene"]
 LIST_OF_CHEMICALS = [
@@ -18,8 +18,8 @@ LIST_OF_CHEMICALS = [
     "Dimethyl Sulfoxide",
     "Ethylene Glycol",
     "Methanol",
-    "Ethan-1-ol",
-    "Octan-1-ol",
+    "Ethanol",
+    "Octanol",
     "Toluene"
     ]
 # LIST_OF_CHEMICALS = ["Ethanol"]
