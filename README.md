@@ -11,8 +11,3 @@ This code writes my risk assessments.
 
 ## Possible future improvements
 1. Change and match text fonts of the table entry(s)
-
-
-possible ideas for coming projects:
-
-1. PyGame to make activity tracker app
